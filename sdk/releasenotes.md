@@ -22,7 +22,7 @@ Terminal *SoftReset* has been changed to **ResetDevice** and is accessed directl
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
 
 ### Configuration File
-There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config
+There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config.  Note that app.config can no longer be used.  This means that the configuration file for the SDK is completely separated from the POS application.
 
 The following is a sample PowerTranzSDK.dll.config:
 ```html
