@@ -8,6 +8,7 @@ Note that as there are breaking changes, this version is not backwards compatibl
 *OrderId* has been changed to **OrderIdentifier**.
 
 The following property, enum, and ... names have been changed
+
 Context | Old Name | New Name
 ---|---|---
 _PtzPaymentRequest_ | ExternalBatchId | ExernalBatchIdentifier
