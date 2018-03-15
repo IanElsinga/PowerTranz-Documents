@@ -2,7 +2,7 @@
 
 ## Version 2.0.0
 Note that as there are breaking changes, this version is not backwards compatible with 1.0.6.
-
+### Breaking Changes
 #### Model changes 
 *ExternalBatchId* has been changed to **ExternalBatchIdentifier**.  
 *OrderId* has been changed to **OrderIdentifier**.
@@ -21,7 +21,7 @@ Terminal *SoftReset* has been changed to **ResetDevice** and is accessed directl
 
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
 
-
+### Non-Breaking Changes
 
 
 
