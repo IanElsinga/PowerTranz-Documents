@@ -71,6 +71,9 @@ The PowerTranz URL can be set in the configuration file or by passing it into th
 * Bluetooth connection improvements and fixes.  Note that the terminal *must* be paired with the device before attempting to connect.  The Bluetooth paired name must be used to connect.
 * SDK no longer gets "stuck" after certain transaction failures
 * More logging has been added, duplicate logging lines were removed.
+* Fixed receipt ApplicationLabel formatting
+* Receipt ApplicationLabel now comes from the Gateway for MSR or fallback
+* 
 
 
 ## Version 1.0.6
