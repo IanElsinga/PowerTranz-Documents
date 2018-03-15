@@ -21,8 +21,16 @@ Terminal *SoftReset* has been changed to **ResetDevice** and is accessed directl
 
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
 
-### Non-Breaking Changes
+### Configuration File
+There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config
 
+The following is a sample PowerTranzSDK.dll.config:
+
+
+### Non-Breaking Changes
+* Bluetooth connection improvements and fixes.  Note that the terminal *must* be paired with the device before attempting to connect.  The Bluetooth paired name must be used to connect.
+* SDK no longer gets "stuck" after certain transaction failures
+* 
 
 
 ## Version 1.0.6
