@@ -18,8 +18,11 @@ public enum | PTtzPosEntryMode | PtzPosEntryMode
 #### Miscellaneous
 Terminal *HardReset* has been removed.
 Terminal *SoftReset* has been changed to **ResetDevice** and is accessed directly from the terminal instance.
+The *PTZMiuraTerminal.Driver* property has been removed.  Any required functionality is available directly from *PTZMiuraTerminal*.
 
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
+
+
 
 ### Configuration File
 There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config.  Note that app.config can no longer be used.  This means that the configuration file for the SDK is completely separated from the POS application.
@@ -73,6 +76,8 @@ The PowerTranz URL can be set in the configuration file or by passing it into th
 * More logging has been added, duplicate logging lines were removed.
 * Fixed receipt ApplicationLabel formatting
 * Receipt ApplicationLabel now comes from the Gateway for MSR or fallback
+* Terminal Serial Number is now retrieved from the terminal and sent to the Gateway in every transaction (this is not TerminalId).  TerminalId no longer defaults to the terminal serial number if not supplied.
+* New IsProduction property of *PTZMiuraTerminal* defaults to true.  Setting it to false raises additional events (*DidReceiveResponse* and *WillSendRequest*) for diagnostic purposes.
 * 
 
 
