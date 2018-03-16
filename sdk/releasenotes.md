@@ -1,11 +1,10 @@
 # Release Notes
 
 ## Version 2.0.0
-Note that as there are breaking changes, this version is not backwards compatible with 1.0.6.
+Please see the PowerTranz SDK Reference Documentation for more details. Note that as there are breaking changes, this version is not backwards compatible with 1.0.6.
 ### Breaking Changes
 #### Model changes 
-*ExternalBatchId* has been changed to **ExternalBatchIdentifier**.  
-*OrderId* has been changed to **OrderIdentifier**.
+
 
 The following object property names have been changed or added:
 
@@ -30,7 +29,7 @@ The *PTZMiuraTerminal.Driver* property has been removed.  Any required functiona
 
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
 
-TransactionSearch response model has been extensively modified and a new OrderSearch method has been added which returns an order (*PtzOrderResponse*) and all its related transactions.  Please see reference documentation for details.
+TransactionSearch response model has been extensively modified and a new OrderSearch method has been added which returns an order (*PtzOrderResponse*) and all its related transactions.  See reference documentation for details.
 
 ### Configuration File
 There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config.  Note that app.config can no longer be used.  This means that the configuration file for the SDK is completely separated from the POS application.
@@ -91,6 +90,7 @@ The PowerTranz URL can be set in the configuration file or by passing it into th
 * *TerminalResult* was not always being set properly in the DidReceiveResponse response object. This has been fixed.
 * Async versions of *PtzApi* methods are now available and should be used for all *PtzApi* requests.
 * Exception handline improvements
+* Various stability improvements
 
 
 ## Version 1.0.6
