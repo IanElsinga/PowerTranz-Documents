@@ -17,7 +17,8 @@ _PtzPaymentRequest_ | * new *  | TerminalSerialNumber
 _PtzPaymentRequest_ | moved from Source.CardholderAddress | BillingAddress
 _PtzPaymentResponse_ | * new *  | TransactionType
 _PtzPaymentResponse_ | * new *  | CardBrand
-_PtzTransactionResponse_ | * extensive changes * |
+_PtzTransactionResponse_ | * extensive changes * | see reference docs
+_PtzOrderResponse_ | * new * | see reference docs
 public enum | PTtzPosEntryMode (typo) | PtzPosEntryMode
 
 
@@ -88,7 +89,8 @@ The PowerTranz URL can be set in the configuration file or by passing it into th
 * New IsProduction property of *PTZMiuraTerminal* defaults to true.  Setting it to false raises additional events (*DidReceiveResponse* and *WillSendRequest*) for diagnostic purposes.
 * *DidFailWithError* event will be be raised if a transaction other than a Credit or an Auth is sent to the terminal.
 * *TerminalResult* was not always being set properly in the DidReceiveResponse response object. This has been fixed.
-* Async versions of PtzApi methods are now available and should be used for all PtzApi requests.
+* Async versions of *PtzApi* methods are now available and should be used for all *PtzApi* requests.
+* Exception handline improvements
 
 
 ## Version 1.0.6
