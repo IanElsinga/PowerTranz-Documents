@@ -7,13 +7,20 @@ Note that as there are breaking changes, this version is not backwards compatibl
 *ExternalBatchId* has been changed to **ExternalBatchIdentifier**.  
 *OrderId* has been changed to **OrderIdentifier**.
 
-The following property, enum, and ... names have been changed  
+The following object property names have been changed or added:
 
 Context | Old Name | New Name
 ---|---|---
 _PtzPaymentRequest_ | ExternalBatchId | ExernalBatchIdentifier
 _PtzPaymentRequest_ | OrderId | OrderIdentifier
-public enum | PTtzPosEntryMode | PtzPosEntryMode
+_PtzPaymentRequest_ | * new *  | TerminalSerialNumber
+_PtzPaymentRequest_ | moved from Source.CardholderAddress | BillingAddress
+_PtzPaymentResponse_ | * new *  | TransactionType
+_PtzPaymentResponse_ | * new *  | CardBrand
+_PtzTransactionResponse_ | * extensive changes * |
+public enum | PTtzPosEntryMode (typo) | PtzPosEntryMode
+
+
 
 #### Miscellaneous
 Terminal *HardReset* has been removed.
@@ -22,7 +29,7 @@ The *PTZMiuraTerminal.Driver* property has been removed.  Any required functiona
 
 There is a new _PtzPosEntryMode_ for receipts.  This will be returned as mode **3** and in code it is _PtzPosEntryMode.PtzPosEntryModeFallback_.  It will be returned in the receipt data when there was a card fallback.
 
-
+TransactionSearch response model has been extensively modified and a new OrderSearch method has been added which returns an order (*PtzOrderResponse*) and all its related transactions.  Please see reference documentation for details.
 
 ### Configuration File
 There is a new config file which can be used to set the PowerTranz Gateway URL and configure log4net logging parameters.  The file must be in the same folder as PowerTranzSDK.dll and must be called *PowerTranzSDK.dll.config.  Note that app.config can no longer be used.  This means that the configuration file for the SDK is completely separated from the POS application.
@@ -72,13 +79,16 @@ The PowerTranz URL can be set in the configuration file or by passing it into th
 
 ### Non-Breaking Changes
 * Bluetooth connection improvements and fixes.  Note that the terminal *must* be paired with the device before attempting to connect.  The Bluetooth paired name must be used to connect.
-* SDK no longer gets "stuck" after certain transaction failures
+* SDK no longer gets "stuck" after certain transaction failures.
 * More logging has been added, duplicate logging lines were removed.
-* Fixed receipt ApplicationLabel formatting
-* Receipt ApplicationLabel now comes from the Gateway for MSR or fallback
+* Fixed receipt ApplicationLabel formatting.
+* Receipt ApplicationLabel now comes from the Gateway for MSR or fallback. 
 * Terminal Serial Number is now retrieved from the terminal and sent to the Gateway in every transaction (this is not TerminalId).  TerminalId no longer defaults to the terminal serial number if not supplied.
+* *PTZMiuraTerminal.GetSerialNumber* fixed.
 * New IsProduction property of *PTZMiuraTerminal* defaults to true.  Setting it to false raises additional events (*DidReceiveResponse* and *WillSendRequest*) for diagnostic purposes.
-* 
+* *DidFailWithError* event will be be raised if a transaction other than a Credit or an Auth is sent to the terminal.
+* *TerminalResult* was not always being set properly in the DidReceiveResponse response object. This has been fixed.
+* Async versions of PtzApi methods are now available and should be used for all PtzApi requests.
 
 
 ## Version 1.0.6
