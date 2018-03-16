@@ -1,3 +1,6 @@
+# THIS IS NOT THE LATEST VERSION. 
+See the PowerTranzSDK repo for the latest.
+
 # Release Notes
 
 ## Version 2.0.0
